@@ -237,46 +237,59 @@ defaultproperties
     // Movement.
     GroundSpeed = 1500 //UT2004 default is 2000 UT3 default is 1500
     MaxPitchSpeed = 2000;
-    HoverSoftness=0.15 //0.09 def UT2004
-	  HoverPenScale=1.35 //1.0 def UT2004
-	  HoverCheckDist=165; //155 GE //150.0 def UT2004
-    AirControl = 1.5;
-
-	MaxStrafeForce=27 //20 def UT2004
+    AirControl = 1.5
+    MaxYawRate=5.0 //3.0
+    TurnTorqueMax=180.0 //125.0 def UT2004
+    UprightStiffness=450.000000 //The manual says it doesn't do anything
+    UprightDamping=20.000000  //The manual says it doesn't do anything
+    PitchTorqueMax=9.0  //18 is a bit too over the top  //13.5 as well
+    RollTorqueMax=10.0  //25.0 //12.5 default 2004 value
+    RollDamping=20.0    //30.0 def UT2004
+    RollTorqueStrafeFactor=100.0 //50.0 def UT2004
+    
+    MaxStrafeForce=27 //20 def UT2004
     LatDamping=0.2
-
-	Begin Object Class=KarmaParamsRBFull Name=KParams0
-		KStartEnabled=True
-		KFriction=0.5
-		KLinearDamping=0.15
-		KAngularDamping=0.02 //0
-		KMaxSpeed=1800
-		bKNonSphericalInertia=False
-		KImpactThreshold=700
+    
+    HoverSoftness=0.15 //0.09 def UT2004
+    HoverPenScale=1.35 //1.0 def UT2004
+    HoverCheckDist=165; //155 //150.0 def UT2004
+    
+    Begin Object Class=KarmaParamsRBFull Name=KParams0
+        KStartEnabled=True
+        KFriction=0.5
+        KLinearDamping=0.15
+        KAngularDamping=0.02 //0
+        KMaxSpeed=1800
+        bKNonSphericalInertia=False
+        KImpactThreshold=700
         bHighDetailOnly=False
         bClientOnly=False
-		bKDoubleTickRate=True
-		bKStayUpright=True
-		bKAllowRotate=True
-		KInertiaTensor(0)=1.3
-		KInertiaTensor(1)=0.0
-		KInertiaTensor(2)=0.0
-		KInertiaTensor(3)=4.0
-		KInertiaTensor(4)=0.0
-		KInertiaTensor(5)=4.5
-		KCOMOffset=(X=0.0,Y=0.0,Z=0.0)
-		bDestroyOnWorldPenetrate=True
-		bDoSafetime=True
+        bKDoubleTickRate=True
+        bKStayUpright=True
+        bKAllowRotate=True
+        KInertiaTensor(0)=1.3
+        KInertiaTensor(1)=0.0
+        KInertiaTensor(2)=0.0
+        KInertiaTensor(3)=4.0
+        KInertiaTensor(4)=0.0
+        KInertiaTensor(5)=4.5
+        KCOMOffset=(X=0.0,Y=0.0,Z=0.0)
+        bDestroyOnWorldPenetrate=True
+        bDoSafetime=True
         Name="KParams0"
     End Object
     KParams=KarmaParams'KParams0'
-
+    
     // Sounds.
     IdleSound = Sound'UT3A_Vehicle_Manta.Sounds.A_Vehicle_Manta_EngineLoop01';
     StartUpSound = Sound'UT3A_Vehicle_Manta.Sounds.A_Vehicle_Manta_Start01';
     ShutDownSound = Sound'UT3A_Vehicle_Manta.Sounds.A_Vehicle_Manta_Stop01';
     JumpSound = Sound'UT3A_Vehicle_Manta.Sounds.A_Vehicle_Manta_Jump';
     DuckSound = Sound'UT3A_Vehicle_Manta.Sounds.A_Vehicle_Manta_Crouch';
+    ImpactDamageMult = 0.00001 //0.0003
+    DamagedEffectHealthSmokeFactor=0.65 //0.5
+    DamagedEffectHealthFireFactor=0.37 //0.25
+    DamagedEffectFireDamagePerSec=0.95 //0.75
     ImpactDamageSounds(0) = Sound'UT3A_Vehicle_Manta.Sounds.A_Vehicle_Manta_Collide01';
     ImpactDamageSounds(1) = Sound'UT3A_Vehicle_Manta.Sounds.A_Vehicle_Manta_Collide02';
     ImpactDamageSounds(2) = Sound'UT3A_Vehicle_Manta.Sounds.A_Vehicle_Manta_Collide01';
@@ -294,34 +307,27 @@ defaultproperties
 
     VehicleNameString = "UT3 Manta"
 
-    MaxYawRate=5.0 //3.0
-    TurnTorqueMax=180.0
-    UprightStiffness=450.000000 //The manual says it doesn't do anything
-    UprightDamping=20.000000  //The manual says it doesn't do anything
-    PitchTorqueMax=9.0  //18 is a bit too over the top  //13.5 as well
-    RollTorqueStrafeFactor=100.0 //50.0 def UT2004
-    RollTorqueMax=10.0 //25.0 //12.5 default 2004 value
-    RollDamping=20.0 //30.0 def UT2004
+    MomentumMult=0.8 //NA
      
     HornSounds(1)=sound'ONSVehicleSounds-S.Horns.LaCuchachaHorn'
-
-    EntryRadius = 160.0
-
+    
     ExitPositions(0)=(X=0,Y=160,Z=30)
     ExitPositions(1)=(X=0,Y=-160,Z=30)
-	  ExitPositions(2)=(X=160,Y=0,Z=30)
-	  ExitPositions(3)=(X=-160,Y=0,Z=30)
-	  ExitPositions(4)=(X=-160,Y=0,Z=-30)
-	  ExitPositions(5)=(X=160,Y=0,Z=-30)
-	  ExitPositions(6)=(X=0,Y=160,Z=-30)
-	  ExitPositions(7)=(X=0,Y=-160,Z=-30)
-
+    ExitPositions(2)=(X=160,Y=0,Z=30)
+    ExitPositions(3)=(X=-160,Y=0,Z=30)
+    ExitPositions(4)=(X=-160,Y=0,Z=-30)
+    ExitPositions(5)=(X=160,Y=0,Z=-30)
+    ExitPositions(6)=(X=0,Y=160,Z=-30)
+    ExitPositions(7)=(X=0,Y=-160,Z=-30)
+    
+    EntryRadius = 160.0
+    
     HeadlightCoronaOffset=()
     HeadlightCoronaOffset(0)=(X=40.0,Y=0.0,Z=-30.0)
     HeadlightCoronaMaterial=Material'EmitterTextures.Flares.EFlareOY'
     
     HeadlightProjectorOffset=(X=43,Y=0,Z=-30)
-	  HeadlightProjectorRotation=(Yaw=0,Pitch=-1000,Roll=0)
-	  HeadlightProjectorMaterial=Texture'VMVehicles-TX.RVGroup.RVProjector'
-	  HeadlightProjectorScale=0.3
+    HeadlightProjectorRotation=(Yaw=0,Pitch=-1000,Roll=0)
+    HeadlightProjectorMaterial=Texture'VMVehicles-TX.RVGroup.RVProjector'
+    HeadlightProjectorScale=0.3
 }
